@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Salgado's Julliet Project</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+  </head>
+  <body>
+    <div id="entireHeader">
+      <div id="intro-panel">
+        <div id="intro-block">
+          <h1>Welcome to my UI page!</h1>
+       
+          <h2>Kevin Salgado</h2>
+        </div>
+      </div> 
+      <nav class="navbar navbar-expand-lg navbar-inverse">
+        <div id="navbarNavAltMarkup">
+          <div class="navbar-nav">
+            <a class="nav-item nav-link active" href="../index.html">Home</a>
+            <a class="nav-item nav-link" href="../pages/uglyDesign.html"> Bad Design</a>
+            <a class="nav-item nav-link" href="#">Enhanced Design</a>
+            <a class="nav-item nav-link" href="https://github.com/KBrian5/reimagined-computing-machine" target="_blank">See the Code!</a>
+            <a class="nav-item nav-link" href="" target="_blank">Check this page's validation!</a>
+            <a class="nav-item nav-link" href="https://gist.github.com/barrycumbie/bdbafe19a5de141fb1e0930b32e439e7" target="_blank">Juliette Story Card!</a>
+          </div>
+        </div>
+      </nav>
+    </div>
+
+    </body>
+    <div id="allContent">
+  
+      <div class="info">
+        <p>In this design, the user is now able to just enter the hour, minute, or second desired without having to scroll through anything. This design is meant to reduce any confusions and to made it easier for the user to setup a timer as quick as possible. Scrolling through numbers is just very time consuming and will get customers very aggravated.<br/><br/>
+        </div>
+      
+      <style>
+              *{
+        margin: 0;
+        padding: 0;
+      }
+      #progress{
+        width: 90%;
+        height: 20px;
+        margin: 20px auto;
+        border-radius: 10px;
+        background-color: #fff;
+        border: 1px solid rgb(255, 72, 0);
+      }
+      #progress-bar{
+        height: 20px;
+        background-color: rgb(255, 94, 0);
+        border-radius: 10px;
+      }
+      button{
+        margin: 0 auto 20px;
+      }
+      input{
+        margin: 5px;
+      }
+        
+        </style>
+
+        <script>
+                    var t = 0;
+          function myFunction() {
+              var x = document.getElementById("frm1");
+              hr = x.elements[0].value;
+              min = x.elements[1].value
+              sec = x.elements[2].value
+            
+
+              window.t = hr*3600 + min*60 + sec*1;
+              window.per = window.t;
+              //document.getElementById("demo").innerHTML = hr*3600 + min*60;
+              timer();
+          }
+          function timer(){
+              var temp = window.t;
+              window.t = window.t-1;
+              var h = Math.floor(temp/3600);
+              var m = Math.floor((temp%3600)/60);
+              var s = Math.floor((temp - h*3600 - m*60));
+              m = checkTime(m);
+              s = checkTime(s);
+              document.getElementById("demo").innerHTML = h + "hr:" + m + "min:" + s + "sec";
+              document.getElementById("progress-bar").style.width = (temp*100)/(window.per) + "%";
+
+              var t = setTimeout(timer,1000);
+
+            
+              if (temp < 0) {
+                  clearInterval(t);
+                  document.getElementById("demo").innerHTML = "Timer is Up!";
+              }
+          }
+          function checkTime(i){
+              if (i<10) { i = "0" + i }
+              return i;
+          }
+
+       
+        </script>
+        
+        
+    
+  
+    
+        
+            <h1>Apple Countdown Timer</h1>
+            <form id="frm1">
+              <br>
+              <input type="text" name="fname" value="" placeholder="Enter the hour" required>Hrs<br>
+              <input type="text" name="lname" value="" placeholder="Enter the minute" required>Min<br>
+              <input type="text" name="mname" value="" placeholder="Enter the second" required>Sec<br><br>
+
+
+              <button onclick="myFunction()">Start Timer</button>
+              <input type="reset" value="Reset">
+
+              <div id="progress">
+              <div id="progress-bar"></div>
+            </div>
+               
+                  <!--button onclick="timer()">START</button-->
+            <h2 id="demo"></h2>
+            </form> 
+           
+            
+          
+           
+           
+          
+        
+        
+        
+
+
+
+      
+     
+   
+    
+    <script  src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script  src="../js/script.js"></script>
+    </div>
+  </body>
+</html>
